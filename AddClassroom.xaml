@@ -5,10 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="Add Classroom" Height="377" Width="453" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" WindowStyle="SingleBorderWindow">
-    <Grid Background="#FF222227">
+        Title="Add Classroom" Height="358" Width="621" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" WindowStyle="None" SizeToContent="Width"
+        >
+    <Grid HorizontalAlignment="Stretch" Background="#FF2A2A2E">
         <!--Columns-->
-        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="12*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="#FF121319" MouseDown="MoveWindow"></Rectangle>
+        <Grid HorizontalAlignment="Stretch" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
@@ -16,35 +22,39 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <!--Stack-->
-            <StackPanel Margin="15,14,34,-314" Orientation="Vertical">
+            <StackPanel HorizontalAlignment="Stretch" Margin="15,14,24,-314" VerticalAlignment="Stretch" Orientation="Vertical">
                 <!--Labels-->
-                <Grid Margin="0, 5">
+                <Grid HorizontalAlignment="Stretch" Margin="0, 5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
                     <Label Grid.Column="0" Foreground="White" VerticalAlignment="Stretch">Number</Label>
-                    <TextBox x:Name="numberText" Grid.Column="1" Foreground="White" Background="{x:Null}" BorderBrush="White" Margin="0,0,-330,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Padding="5,3,0,0">Capacity</TextBox>
+                    <TextBox x:Name="numberText" Grid.Column="1" Foreground="White" Background="{x:Null}" BorderBrush="White" Padding="5,3,0,0">Capacity</TextBox>
                 </Grid>
-                <Grid Margin="0, 5">
+                <Grid HorizontalAlignment="Stretch" Margin="0, 5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
                     <Label Grid.Column="0" Foreground="White">Capacity</Label>
-                    <TextBox x:Name="capacityText" Foreground="White" Background="{x:Null}" BorderBrush="White" Margin="5,0,-330,0" Padding="5,3,0,0" Grid.Column="1">Capacity</TextBox>
+                    <TextBox x:Name="capacityText" Foreground="White" Background="{x:Null}" BorderBrush="White" Margin="5,0,0,0" Padding="5,3,0,0" Grid.Column="1">Capacity</TextBox>
                 </Grid>
-                <Grid Margin="0, 5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <!--Schedule Grid-->
+                <Grid Margin="0, 5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid VerticalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Border BorderThickness="1" BorderBrush="White" Margin="1,0,-1,0">
                             <Label Grid.Column="0" Foreground="White" BorderBrush="White">Schedule</Label>
@@ -52,25 +62,30 @@
                         <Button x:Name="addSchedule" Grid.Column="1" BorderBrush="White" Background="{x:Null}" Foreground="White" Margin="0,0,1,0" Click="AddTimeStamp">Add</Button>
                     </Grid>
                     <!--Schedule Panel-->
-                    <Border Margin="1,0,1,0" Grid.Row="1" BorderBrush="White" BorderThickness="1" Width="383" VerticalAlignment="Top" Height="145">
-                        <StackPanel x:Name="scheduleList" Margin="1,0,-1,0">
+                    <Border Margin="1,0,1,0" Grid.Row="1" BorderBrush="White" BorderThickness="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="145">
+                        <StackPanel HorizontalAlignment="Stretch" x:Name="scheduleList" Margin="1,0,-1,0">
                             <!--Rows-->
-                            <Grid x:Name="scheduleStamp" Margin="5,5,10,5">
+                            <Grid HorizontalAlignment="Stretch" x:Name="scheduleStamp" Margin="5,5,10,5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Label Foreground="White">01:00:00</Label>
-                                <TextBox x:Name="schtex" Foreground="White" Background="{x:Null}" BorderBrush="White" Margin="1,0,-316,0" Grid.Column="1" Padding="5,3,0,0">Capacity</TextBox>
+                                <Label Foreground="White">00:00:00</Label>
+                                <TextBox x:Name="schtex" Foreground="White" Background="{x:Null}" BorderBrush="White" Margin="1,0,0,0" Grid.Column="1" Padding="5,3,0,0">Capacity</TextBox>
                             </Grid>
                         </StackPanel>
                     </Border>
                 </Grid>
-                <Grid HorizontalAlignment="Left" Width="382">
-                    <Button x:Name="sendBtn" Background="#FF00A2FF" Padding="5" BorderBrush="{x:Null}" Foreground="White" Content="Add Classroom" Margin="287,10,-2,0" Click="Send"/>
+                <Grid HorizontalAlignment="Stretch">
+                    <Button x:Name="sendBtn" Background="#FF00A2FF" Padding="5" BorderBrush="{x:Null}" Foreground="White" Content="Add Classroom" Margin="287,10,-2,0" Click="Send" VerticalAlignment="Top" HorizontalAlignment="Right"/>
                 </Grid>
             </StackPanel>
         </Grid>
+        <Button Content="" HorizontalAlignment="Right" Margin="375,0,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="29" Width="31" Click="Close">
+            <Button.Background>
+                <ImageBrush ImageSource="/close.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

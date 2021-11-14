@@ -198,7 +198,6 @@ namespace WpfApp {
         }
 
         private void MoveWindow(object sender, MouseButtonEventArgs e) {
-            Trace.WriteLine(((Rectangle)sender).ActualWidth);
             if(e.ChangedButton == MouseButton.Left) {
                 if (e.ClickCount == 2) {
                     Adjust();

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="#FF191921" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
-    <Grid Background="#FF222227" x:Name="root" Margin="10px">
+    <Grid Background="#FF222227" x:Name="root">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="8*"></ColumnDefinition>
