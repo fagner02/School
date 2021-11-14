@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="back.png" />
+    <None Remove="close.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\School\School.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="back.png" />
+    <Resource Include="close.png" />
+  </ItemGroup>
+
+</Project>
