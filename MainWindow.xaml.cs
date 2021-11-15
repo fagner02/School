@@ -16,7 +16,7 @@ using System.Xaml;
 using System.Windows.Markup;
 using System.Diagnostics;
 using SchoolLib;
-
+using System.Text.RegularExpressions;
 namespace WpfApp {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -40,16 +40,18 @@ namespace WpfApp {
         private string subjectDetailGridXaml =
             @"<Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width='*' ></ColumnDefinition>
+                    <ColumnDefinition Width='4*' ></ColumnDefinition>
+                    <ColumnDefinition Width='7*' ></ColumnDefinition>
                 </Grid.ColumnDefinitions >
                 <Label Content='Name' Foreground='White'></Label>
+                <TextBlock Text='Description' Padding='5' TextTrimming='CharacterEllipsis' Foreground='White' Grid.Column='1'></TextBlock>
             </Grid>";
         private string studentDetailGridXaml =
             @"<Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width=""148""></ColumnDefinition>
-                    <ColumnDefinition Width=""98""></ColumnDefinition>
-                    <ColumnDefinition Width=""247""></ColumnDefinition>
+                    <ColumnDefinition Width=""16*""></ColumnDefinition>
+                    <ColumnDefinition Width=""5*""></ColumnDefinition>
+                    <ColumnDefinition Width=""5*""></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column=""0"" Foreground=""White"">Name</Label>
                 <Label Grid.Column=""1"" Foreground=""White"">Age</Label>
@@ -93,6 +95,8 @@ namespace WpfApp {
             school.classrooms.Add(new Classroom(1));
             school.classrooms[1].schedule = school.studentSchedules[1];
             school.professors.Add(professor);
+            SetText();
+            
         }
 
         private void AddStudent(object sender, RoutedEventArgs e) {
@@ -169,6 +173,7 @@ namespace WpfApp {
                 Grid grid = (Grid)System.Windows.Markup.XamlReader.Load(ecod, context);
                 grid.Visibility = Visibility.Visible;
                 grid.Children[0].SetValue(ContentProperty, x.name);
+                ((TextBlock)grid.Children[1]).Text = Regex.Replace(x.description, "\r\n", " ");
                 grid.MouseEnter += new MouseEventHandler(SetFocused);
                 grid.MouseLeave += new MouseEventHandler(SetUnfocused);
                 grid.MouseDown += new MouseButtonEventHandler(ToSubjectDetail);
@@ -178,7 +183,7 @@ namespace WpfApp {
 
         private void ToStudentsDetail(object sender, MouseButtonEventArgs e) {
             Grid obj = (Grid)sender;
-            Student student = school.students.Find(x => x.name == (string)obj.Children[0].GetValue(ContentProperty));
+            Student student = school.students.Find(x => x.name == (string)((Label)obj.Children[0]).Content);
             HideCurrent(studentDetailGrid);
             detailName.Content = student.name;
             detailAge.Content = student.age;

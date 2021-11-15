@@ -26,11 +26,11 @@
 			</StackPanel>
 		</Grid>
 		<!--Tab Grids-->
-		<Grid Grid.Column="1" x:Name="overviewGrid" Visibility="Hidden" Grid.Row="1" d:IsHidden="True">
+		<Grid Grid.Column="1" x:Name="overviewGrid" Visibility="Visible" Grid.Row="1" d:IsHidden="True">
 			<TextBlock x:Name="overviewText" HorizontalAlignment="Left" Margin="60,48,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="286" Width="499" Foreground="White"/>
 		</Grid>
 
-		<Grid x:Name="studentsGrid" Grid.Column="1" Visibility="Visible" Grid.Row="1">
+		<Grid x:Name="studentsGrid" Grid.Column="1" Visibility="Visible" Grid.Row="1" d:IsHidden="True">
 			<Grid Margin="64">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="Auto"></RowDefinition>
@@ -39,8 +39,8 @@
 				</Grid.RowDefinitions>
 				<Grid Grid.Row="0" x:Name="studentsLabels">
 					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="3*"></ColumnDefinition>
-						<ColumnDefinition Width="2*"></ColumnDefinition>
+						<ColumnDefinition Width="16*"></ColumnDefinition>
+						<ColumnDefinition Width="5*"></ColumnDefinition>
 						<ColumnDefinition Width="5*"></ColumnDefinition>
 					</Grid.ColumnDefinitions>
 					<Label Grid.Column="0" Foreground="White">Name</Label>
@@ -48,7 +48,18 @@
 					<Label Grid.Column="2" Foreground="White">Classroom</Label>
 				</Grid>
 
-				<StackPanel Grid.Row="1" x:Name="studentsList" Background="{x:Null}"/>
+				<StackPanel Grid.Row="1" x:Name="studentsList" Background="{x:Null}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="8*"></ColumnDefinition>
+							<ColumnDefinition Width="2*"></ColumnDefinition>
+							<ColumnDefinition Width="2*"></ColumnDefinition>
+						</Grid.ColumnDefinitions>
+						<Label Grid.Column="0" Foreground="White">Name</Label>
+						<Label Grid.Column="1" Foreground="White">Age</Label>
+						<Label Grid.Column="2" Foreground="White">Classroom</Label>
+					</Grid>
+				</StackPanel>
 				<Button Grid.Row="2" Content="Add Student" HorizontalAlignment="Right" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Foreground="White" Padding="5,5,5,5" Click="AddStudent">
 					<Button.Background>
 						<SolidColorBrush Color="{DynamicResource ButtonBrush}"/>
@@ -57,7 +68,7 @@
 			</Grid>
 		</Grid>
 
-		<Grid x:Name="studentDetailGrid" Grid.Column="1" Visibility="Visible" Grid.Row="1" d:IsHidden="True">
+		<Grid x:Name="studentDetailGrid" Grid.Column="1" Visibility="Hidden" Grid.Row="1" d:IsHidden="True">
 			<Grid Margin="64">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -86,7 +97,7 @@
 			</Grid>
 		</Grid>
 
-		<Grid x:Name="classroomsGrid" Grid.Column="1" Visibility="Visible" Grid.Row="1" d:IsHidden="True">
+		<Grid x:Name="classroomsGrid" Grid.Column="1" Visibility="Hidden" Grid.Row="1" d:IsHidden="True">
 			<Grid Margin="64">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="Auto"></RowDefinition>
@@ -114,7 +125,7 @@
 
 		</Grid>
 
-		<Grid x:Name="classroomDetailGrid" Grid.Column="1" Visibility="Visible" Grid.Row="1" d:IsHidden="True">
+		<Grid x:Name="classroomDetailGrid" Grid.Column="1" Visibility="Visible" Grid.Row="1">
 			<Grid Margin="64">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -139,14 +150,14 @@
 				<Label x:Name="detailClassCapacity" Foreground="White" Grid.Row="2" Grid.Column="1"></Label>
 				<Label x:Name="detailClassStudentNumber" Foreground="White" Grid.Row="3" Grid.Column="1"></Label>
 				<Label Grid.Row="4" Foreground="White">Students:</Label>
-				<ListBox x:Name="detailClassStudents" Grid.Row="4" Grid.Column="1" Margin="0,2,-378,-151" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}">
+				<ListBox x:Name="detailClassStudents" Grid.Row="4" Grid.Column="1" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}">
 				</ListBox>
 			</Grid>
 
 
 		</Grid>
 
-		<Grid x:Name="professorsGrid" Grid.Column="1" Visibility="Visible" d:IsHidden="True">
+		<Grid x:Name="professorsGrid" Grid.Column="1" Visibility="Hidden" d:IsHidden="True">
 			<Grid Margin="64">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="Auto"></RowDefinition>
@@ -176,7 +187,7 @@
 			</Grid>
 		</Grid>
 
-		<Grid x:Name="professorsDetailGrid" Grid.Column="1" Visibility="Visible" d:IsHidden="True">
+		<Grid x:Name="professorsDetailGrid" Grid.Column="1" Visibility="Hidden" d:IsHidden="True">
 			<Grid Margin="64">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -208,7 +219,7 @@
 			</Grid>
 		</Grid>
 
-		<Grid x:Name="subjectGrid" Grid.Column="1" Visibility="Visible" d:IsHidden="True">
+		<Grid x:Name="subjectGrid" Grid.Column="1" Visibility="Hidden" d:IsHidden="True">
 			<Grid Margin="64">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="Auto"></RowDefinition>
@@ -218,13 +229,11 @@
 				<!--Labels-->
 				<Grid>
 					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="8*"></ColumnDefinition>
-						<ColumnDefinition Width="2*"></ColumnDefinition>
-						<ColumnDefinition Width="3*"></ColumnDefinition>
+						<ColumnDefinition Width="4*"></ColumnDefinition>
+						<ColumnDefinition Width="7*"></ColumnDefinition>
 					</Grid.ColumnDefinitions>
 					<Label Content="Name" Foreground="White"></Label>
-					<Label Content="Age" Foreground="White" Grid.Column="1"></Label>
-					<Label Content="Subject" Foreground="White" Grid.Column="2"></Label>
+					<TextBlock Padding="5" Text="Description" Foreground="White" Grid.Column="1"></TextBlock>
 				</Grid>
 				<!--ListBox-->
 				<StackPanel x:Name="subjectList" Background="{x:Null}" Grid.Row="1">
@@ -238,8 +247,7 @@
 			</Grid>
 		</Grid>
 
-		<Grid x:Name="subjectsDetailGrid" Grid.Column="1" Visibility="Visible" d:IsHidden="True">
-			
+		<Grid x:Name="subjectsDetailGrid" Grid.Column="1" Visibility="Hidden" d:IsHidden="True">
 			<Grid Margin="64">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -261,7 +269,7 @@
 				<Label x:Name="detailSubjectName" Foreground="White" Grid.Row="1" Grid.Column="1" Content="Name"></Label>
 				<!--Description-->
 				<Label Content="Description" Grid.Row="2" Foreground="White" ></Label>
-				<TextBlock Grid.Row="2" Grid.Column="1" Foreground="White"></TextBlock>
+				<TextBlock  TextWrapping="NoWrap" Text="2d2&#10;dcer" Grid.Row="2" Grid.Column="1" Foreground="White" Padding="5,5,5,5"/>
 			</Grid>
 		</Grid>
 

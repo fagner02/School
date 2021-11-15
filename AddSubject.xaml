@@ -24,7 +24,7 @@
                 </Grid.ColumnDefinitions>
                 <Label Content="Name" Foreground="White" Background="{x:Null}"></Label>
                 <Border Grid.Column="1" BorderBrush="White" BorderThickness="1">
-                    <TextBox x:Name="nameText" Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="White" Foreground="White"></TextBox>
+                    <TextBox x:Name="nameText" Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="White" Foreground="White" Padding="0,3,0,0"></TextBox>
                 </Border>
             </Grid>
             <Grid Grid.Row="1">
@@ -35,10 +35,10 @@
                 <Border BorderThickness="1" BorderBrush="White">
                     <Label Content="Description" Foreground="White" Background="{x:Null}"></Label>
                 </Border>
-                <Border Grid.Row="1" BorderBrush="White" BorderThickness="1">
-                    <TextBlock x:Name="descriptionText" Foreground="White"></TextBlock>
-                </Border>
-            </Grid>
+
+				<TextBox AcceptsReturn="True" TextWrapping="Wrap" Grid.Row="1" x:Name="descriptionText" Foreground="White" Background="#00000000" OpacityMask="Black" BorderBrush="White" Margin="0,-1,0,0" Padding="5"></TextBox>
+
+			</Grid>
             <Button Grid.Row="2" Padding="5" BorderBrush="{x:Null}" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Add Subject" Margin="0,10,0,0" Click="Send">
                 <Button.Background>
                     <SolidColorBrush Color="{DynamicResource ButtonBrush}"/>
