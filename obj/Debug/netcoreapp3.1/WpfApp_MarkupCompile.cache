@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\fagne\source\repos\WpfApp\App.xaml
-4-24250857
+71758848271
 
-6-1710156536
+81116250037
 193-550341638
-AddClassroom.xaml;AddStudent.xaml;MainWindow.xaml;UserControl1.xaml;
+AddClassroom.xaml;AddProfessor.xaml;AddStudent.xaml;AddSubject.xaml;Dictionary1.xaml;MainWindow.xaml;UserControl1.xaml;
 
 False
 

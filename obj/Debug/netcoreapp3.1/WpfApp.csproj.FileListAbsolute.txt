@@ -26,3 +26,9 @@ C:\Users\fagne\source\repos\WpfApp\obj\Debug\netcoreapp3.1\AddStudent.baml
 C:\Users\fagne\source\repos\WpfApp\obj\Debug\netcoreapp3.1\UserControl1.baml
 C:\Users\fagne\source\repos\WpfApp\obj\Debug\netcoreapp3.1\AddClassroom.g.cs
 C:\Users\fagne\source\repos\WpfApp\obj\Debug\netcoreapp3.1\AddClassroom.baml
+C:\Users\fagne\source\repos\WpfApp\obj\Debug\netcoreapp3.1\App.baml
+C:\Users\fagne\source\repos\WpfApp\obj\Debug\netcoreapp3.1\Dictionary1.baml
+C:\Users\fagne\source\repos\WpfApp\obj\Debug\netcoreapp3.1\AddProfessor.g.cs
+C:\Users\fagne\source\repos\WpfApp\obj\Debug\netcoreapp3.1\AddProfessor.baml
+C:\Users\fagne\source\repos\WpfApp\obj\Debug\netcoreapp3.1\AddSubject.g.cs
+C:\Users\fagne\source\repos\WpfApp\obj\Debug\netcoreapp3.1\AddSubject.baml
