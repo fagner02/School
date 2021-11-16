@@ -201,7 +201,7 @@ namespace WpfApp {
             detailClassNumber.Content = classroom.Number;
             detailClassCapacity.Content = classroom.capacity;
             detailClassStudentNumber.Content = classroom.students.Count;
-            detailClassStudents.Items.Clear();
+            detailClassStudents.Children.Clear();
             
             foreach (var x in classroom.students) {
                 Encoding encoding = Encoding.UTF8;
@@ -211,8 +211,10 @@ namespace WpfApp {
                 grid.Children[0].SetValue(ContentProperty, x.name);
                 grid.Children[1].SetValue(ContentProperty, x.age);
                 grid.Children[2].SetValue(ContentProperty, x.classroom.Number);
+                grid.MouseEnter += new MouseEventHandler(SetFocused);
+                grid.MouseLeave += new MouseEventHandler(SetUnfocused);
                 grid.MouseDown += new MouseButtonEventHandler(ToStudentsDetail);
-                detailClassStudents.Items.Add(grid);
+                detailClassStudents.Children.Add(grid);
             }
         }
 
