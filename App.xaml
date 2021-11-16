@@ -7,6 +7,7 @@
         <Color x:Key="DetailGridFocusedBrush">#6600C5FF</Color>
         <Color x:Key="ButtonBrush">#FF00A2FF</Color>
         <Color x:Key="AddWindowBackground">#FF2A2A2E</Color>
+		<Color x:Key="TitleBarColor">#FF121319</Color>
         <Style x:Key="ComboBoxStyle" TargetType="{x:Type ComboBox}">
             <Setter Property="Template">
                 <Setter.Value>

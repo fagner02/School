@@ -5,90 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="Window1" Height="282" Width="530">
-    <Grid Background="#FF222227">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10*"></ColumnDefinition>
-            <ColumnDefinition Width="6*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
+        Title="Add Student" Height="282" Width="530" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+	<Window.Background>
+		<SolidColorBrush Color="{DynamicResource AddWindowBackground}"/>
+	</Window.Background>
+	<Grid>
+		<Grid.Background>
+			<SolidColorBrush Color="{DynamicResource AddWindowBackground}"/>
+		</Grid.Background>
+		<Grid Margin="30,60,30,30">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid Margin="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"></ColumnDefinition>
+					<ColumnDefinition Width="*"></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+				<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,5,0">
+					<Grid Width="Auto" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"></ColumnDefinition>
+							<ColumnDefinition Width="*"></ColumnDefinition>
+						</Grid.ColumnDefinitions>
+						<Label Content="Name" Grid.Column="0" HorizontalAlignment="Left"  VerticalAlignment="Center" Foreground="White"/>
+						<TextBox x:Name="nameText" Grid.Column="1" HorizontalAlignment="Stretch" Text="TextBox" VerticalAlignment="Stretch" Background="{x:Null}" BorderBrush="White" Foreground="White" Padding="0,4,0,4" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+						<Grid/>
+					</Grid>
+					<Grid Width="Auto" Margin="0,5,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+						<Label Content="Age" Grid.Column="0" HorizontalAlignment="Left"  VerticalAlignment="Center" Foreground="White"/>
+						<TextBox x:Name="ageText" HorizontalAlignment="Stretch" Margin="31,0,0,0" Text="TextBox" VerticalAlignment="Stretch" Background="{x:Null}" BorderBrush="White" Foreground="White" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Padding="0,4,0,4"/>
+						<Grid/>
+					</Grid>
+					<Grid Margin="0,5,0,0" VerticalAlignment="Stretch">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"></RowDefinition>
+							<RowDefinition Height="*"></RowDefinition>
+						</Grid.RowDefinitions>
+						<Border BorderBrush="White" BorderThickness="1,1,1,0" Margin="0,0,0,0" HorizontalAlignment="Left" >
+							<Label Content="Classroom" Foreground="White" BorderBrush="White" Background="#00000000" Margin="-1,0,0,0" HorizontalAlignment="Center"/>
+						</Border>
+						<ListBox x:Name="classrooms" Margin="0,0,0,-62" Grid.Row="1" Background="{x:Null}" BorderBrush="White" Foreground="White" SelectionChanged="ClassSelected" Height="64">
+							<ListBox.ItemsPanel>
+								<ItemsPanelTemplate>
+									<WrapPanel IsItemsHost="True" />
+								</ItemsPanelTemplate>
+							</ListBox.ItemsPanel>
+						</ListBox>
+					</Grid>
+				</StackPanel>
+				<Grid Grid.Column="1" Margin="5,0,0,0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"></RowDefinition>
+						<RowDefinition></RowDefinition>
+					</Grid.RowDefinitions>
+					<ListBox x:Name="schedules" Grid.Row="1" Margin="0" Background="{x:Null}" BorderBrush="White" Foreground="White">
+					</ListBox>
+					<Border HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" BorderBrush="White" BorderThickness="1,1,1,0" Grid.Column="0">
+						<Label Content="Classroom Schedule" Foreground="White"/>
+					</Border>
+				</Grid>
 
-        <!--<Grid Background="#FF191921">
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
-                <Button Margin="5, 20" Padding="5" BorderBrush="{x:Null}" Background="#FF00A2FF" Foreground="White">Add professor</Button>
-                <Button Margin="5, 20"  Padding="5" BorderBrush="{x:Null}" Background="#FF00A2FF" Foreground="White">Text</Button>
-            </StackPanel>
-        </Grid>-->
-        <Button Margin="0,185,0,0" Padding="5" BorderBrush="{x:Null}" Background="#FF00A2FF" Foreground="White" Content="Add student" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Send"/>
-
-
-
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="300" >
-            <Grid Width="Auto" Margin="0,5,0,5" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Label Content="Name" Grid.Column="0" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="White"/>
-                <TextBox x:Name="nameText" Grid.Column="1" HorizontalAlignment="Left" Text="TextBox" VerticalAlignment="Center" Width="258" Background="{x:Null}" BorderBrush="White" Foreground="White" Padding="0,4,0,4" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
-                <Grid/>
-            </Grid>
-            <Grid Width="Auto" Margin="0,5,0,5" HorizontalAlignment="Stretch" VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Label Content="Age" Grid.Column="0" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="White"/>
-                <TextBox x:Name="ageText" HorizontalAlignment="Left" Margin="31,0,0,0" Text="TextBox" VerticalAlignment="Center" Width="269" Background="{x:Null}" BorderBrush="White" Foreground="White" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Padding="0,4,0,4"/>
-                <Grid/>
-            </Grid>
-            <!--<Grid Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,5,0,5" Height="Auto">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Label Content="Label" Grid.Column="0" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="White"/>
-                <TextBox Grid.Column="1" HorizontalAlignment="Left" Text="TextBox" VerticalAlignment="Center" Width="262" Background="{x:Null}" BorderBrush="White" Foreground="White" VerticalContentAlignment="Center" Padding="0,4,0,4"/>
-                <Grid/>
-            </Grid>
-            <Grid Width="Auto" Margin="0,5,0,5" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Label Content="Label" Grid.Column="0" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="White"/>
-                <TextBox Grid.Column="1" Margin="0,0,-262,0" Text="TextBox" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="White" Foreground="White" VerticalContentAlignment="Center" Padding="0,4,0,4"/>
-                <Grid/>
-            </Grid>-->
-            <StackPanel Height="90">
-                <!--<Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                </Grid.RowDefinitions>-->
-                <Border BorderBrush="White" BorderThickness="1,1,1,0" Margin="5,5,217,0" Grid.RowSpan="2">
-                    <Label Content="Classroom" Foreground="White" BorderBrush="White" Background="#00000000" Margin="-1,0,0,0" HorizontalAlignment="Center"/>
-                </Border>
-                <ListBox x:Name="classrooms" Margin="5,0,0,0" Grid.Row="1" Background="{x:Null}" BorderBrush="White" Foreground="White" SelectionChanged="ClassSelected" Height="26">
-                    <ListBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel IsItemsHost="True" />
-                        </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                </ListBox>
-            </StackPanel>
-        </StackPanel>
-        <ListBox x:Name="schedules" Margin="6,43,10,125" Background="{x:Null}" BorderBrush="White" Foreground="White" Grid.Column="1">
-            <!--<ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel IsItemsHost="True" />
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>-->
-        </ListBox>
-        <Border HorizontalAlignment="Left" Margin="6,14,0,0" VerticalAlignment="Top" BorderBrush="White" BorderThickness="1,1,1,0" Grid.Column="1" Height="29">
-            <Label Content="Classroom Schedule"  Grid.ColumnSpan="2" Foreground="White"/>
-        </Border>
-
-    </Grid>
+			</Grid>
+			<Button Grid.Row="1" Margin="0,10,0,0" Padding="5" BorderBrush="{x:Null}" Background="#FF00A2FF" Foreground="White" Content="Add student" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Send"/>
+		</Grid>
+		<Rectangle Height="30" VerticalAlignment="Top" MouseDown="MoveWindow">
+			<Rectangle.Fill>
+				<SolidColorBrush Color="{DynamicResource TitleBarColor}"/>
+			</Rectangle.Fill>
+		</Rectangle>
+		<Button Content="" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="29" Width="31" Click="Close">
+			<Button.Background>
+				<ImageBrush ImageSource="/close.png" Stretch="Uniform"/>
+			</Button.Background>
+		</Button>
+	</Grid>
 </Window>

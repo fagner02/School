@@ -43,5 +43,31 @@ namespace WpfApp {
                 schedules.Items.Add(x.Key + " - " + x.Value.name);
             }
         }
+
+        private void MoveWindow(object sender, MouseButtonEventArgs e) {
+            if (e.ChangedButton == MouseButton.Left) {
+                if (e.ClickCount == 2) {
+                    Adjust();
+                } else {
+                    this.DragMove();
+                }
+            }
+        }
+
+        public void Adjust() {
+
+            if (WindowState == WindowState.Normal) {
+                this.SizeToContent = SizeToContent.Manual;
+                WindowState = WindowState.Maximized;
+            } else {
+                this.SizeToContent = SizeToContent.Width;
+                WindowState = WindowState.Normal;
+            }
+
+        }
+
+        private void Close(object sender, RoutedEventArgs e) {
+            this.Close();
+        }
     }
 }

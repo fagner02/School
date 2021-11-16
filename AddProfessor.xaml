@@ -5,81 +5,94 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="AddProfessor" Height="304" Width="313" MinHeight="304" MinWidth="245">
-    <Grid Background="#FF2A2A2E" >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-        </Grid.RowDefinitions>
-        <!--Infos-->
-        <Grid Margin="30,30,30,0" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-            </Grid.RowDefinitions>
-            <!--Top-->
-            <StackPanel Margin="0,0,0,0" >
-                <Grid Margin="0,5,0,5" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Label Content="Name" Foreground="White" ></Label>
-                    <TextBox x:Name="nameText" Grid.Column="1" Background="{x:Null}" BorderBrush="White" Foreground="White" Padding="0,4,0,0" ></TextBox>
-                </Grid>
-                <Grid Margin="0,5,0,5" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Label Content="Age" Foreground="White" ></Label>
-                    <TextBox x:Name="ageText" Grid.Column="1" Background="{x:Null}" BorderBrush="White" Foreground="White" Padding="0,4,0,0" CaretBrush="White" />
-                </Grid>
-                <ComboBox x:Name="subjects" Style="{DynamicResource ComboBoxStyle}" SelectedIndex="0" Foreground="White" Height="25.96" Margin="0,5,0,10" >
-                    <ComboBoxItem>Select Subject</ComboBoxItem>
-                </ComboBox>
-                    
-            </StackPanel>
-            <!--Bottom-->
-            <Grid Grid.Row="1" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <!--Label-->
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Border BorderThickness="1" BorderBrush="White" >
-                        <Label Content="Schedule" Foreground="White" ></Label>
-                    </Border>
-                    <Button Click="AddScheduleListItem" Content="Add" Grid.Column="1" BorderBrush="White" Foreground="White" >
-                        <Button.Background>
-                            <SolidColorBrush Color="{DynamicResource AddWindowBackground}"/>
-                        </Button.Background>
-                    </Button>
-                </Grid>
-                <!--ScheduleList-->
-                <StackPanel x:Name="scheduleList" Grid.Row="1" >
-                    <Grid x:Name="scheduleNameItem" >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Label Content="00:00:00" Foreground="White" ></Label>
-                        <ComboBox x:Name="scheduleDropDown" Grid.Column="1" Margin="10,0,0,0" Foreground="White" Style="{DynamicResource ComboBoxStyle}" SelectedIndex="0" >
-                            <ComboBoxItem>Select Classroom</ComboBoxItem>
-                        </ComboBox>
-                    </Grid>
-                </StackPanel>
-            </Grid>
-        </Grid>
-        <Button Grid.Row="1" Padding="5" Content="Add Professor" BorderBrush="{x:Null}" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,30,30" Click="Send" >
-            <Button.Background>
-                <SolidColorBrush Color="#FF00A2FF"/>
-            </Button.Background>
-        </Button>
-    </Grid>
+        Title="Add Professor" Height="364" Width="409" MinHeight="304" MinWidth="245" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" HorizontalAlignment="Left" VerticalAlignment="Top">
+	<Window.Background>
+		<SolidColorBrush Color="{DynamicResource AddWindowBackground}"/>
+	</Window.Background>
+	<Grid Background="#FF2A2A2E" >
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
+		</Grid.RowDefinitions>
+		<!--Infos-->
+		<Grid Margin="30,60,30,0" >
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+			<!--Top-->
+			<StackPanel Margin="0,0,0,0" >
+				<Grid Margin="0,5,0,5" >
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"></ColumnDefinition>
+						<ColumnDefinition Width="*"></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Label Content="Name" Foreground="White" ></Label>
+					<TextBox x:Name="nameText" Grid.Column="1" Background="{x:Null}" BorderBrush="White" Foreground="White" Padding="0,4,0,0" ></TextBox>
+				</Grid>
+				<Grid Margin="0,5,0,5" >
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"></ColumnDefinition>
+						<ColumnDefinition Width="*"></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Label Content="Age" Foreground="White" ></Label>
+					<TextBox x:Name="ageText" Grid.Column="1" Background="{x:Null}" BorderBrush="White" Foreground="White" Padding="0,4,0,0" CaretBrush="White" />
+				</Grid>
+				<ComboBox x:Name="subjects" Style="{DynamicResource ComboBoxStyle}" SelectedIndex="0" Foreground="White" Height="25.96" Margin="0,5,0,10" >
+					<ComboBoxItem>Select Subject</ComboBoxItem>
+				</ComboBox>
+
+			</StackPanel>
+			<!--Bottom-->
+			<Grid Grid.Row="1" >
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"></RowDefinition>
+					<RowDefinition Height="*"></RowDefinition>
+				</Grid.RowDefinitions>
+				<!--Label-->
+				<Grid Margin="0,0,0,-1" >
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"></ColumnDefinition>
+						<ColumnDefinition Width="*"></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Border BorderThickness="1" BorderBrush="White" >
+						<Label Content="Schedule" Foreground="White" ></Label>
+					</Border>
+					<Button Click="AddScheduleListItem" Content="Add" Grid.Column="1" BorderBrush="White" Foreground="White" >
+						<Button.Background>
+							<SolidColorBrush Color="{DynamicResource AddWindowBackground}"/>
+						</Button.Background>
+					</Button>
+				</Grid>
+				<!--ScheduleList-->
+				<StackPanel x:Name="scheduleList" Grid.Row="1" ScrollViewer.CanContentScroll="True" CanVerticallyScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" Panel.ZIndex="1" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" CanHorizontallyScroll="True" Grid.IsSharedSizeScope="True" FlowDirection="LeftToRight" Orientation="Horizontal" >
+					<Grid x:Name="scheduleNameItem" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"></ColumnDefinition>
+							<ColumnDefinition Width="*"></ColumnDefinition>
+						</Grid.ColumnDefinitions>
+						<Label Content="00:00:00" Foreground="White" ></Label>
+						<ComboBox x:Name="scheduleDropDown" Grid.Column="1" Margin="10,0,0,0" Foreground="White" Style="{DynamicResource ComboBoxStyle}" SelectedIndex="0" >
+							<ComboBoxItem>Select Classroom</ComboBoxItem>
+						</ComboBox>
+					</Grid>
+				</StackPanel>
+			</Grid>
+		</Grid>
+		<Button Grid.Row="1" Padding="5" Content="Add Professor" BorderBrush="{x:Null}" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,30,30" Click="Send" >
+			<Button.Background>
+				<SolidColorBrush Color="#FF00A2FF"/>
+			</Button.Background>
+		</Button>
+		<Rectangle Margin="0,0,0,216" MouseDown="MoveWindow" VerticalAlignment="Top" Height="30">
+			<Rectangle.Fill>
+				<SolidColorBrush Color="{DynamicResource TitleBarColor}"/>
+			</Rectangle.Fill>
+		</Rectangle>
+		<Button Content="" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="29" Width="31" Click="Close">
+			<Button.Background>
+				<ImageBrush ImageSource="/close.png" Stretch="Uniform"/>
+			</Button.Background>
+		</Button>
+	</Grid>
 </Window>
